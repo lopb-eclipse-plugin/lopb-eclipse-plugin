@@ -1,0 +1,41 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Chapter&nbsp;4.&nbsp;Lopb Features</title><meta content="DocBook XSL Stylesheets V1.75.0" name="generator"><meta name="keywords" content="Lack of Progress Bar, eclipse, documentation"><link rel="home" href="index.html" title="Lack of Progress Bar (Lopb) - User Guide"><link rel="up" href="index.html" title="Lack of Progress Bar (Lopb) - User Guide"><link rel="prev" href="ch03s02.html" title="Show Lopb Views"><link rel="next" href="ch04s02.html" title="Ignored Jobs View"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Chapter&nbsp;4.&nbsp;Lopb Features</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="ch03s02.html">Prev</a>&nbsp;</td><th align="center" width="60%">&nbsp;</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="ch04s02.html">Next</a></td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;4.&nbsp;Lopb Features"><div class="titlepage"><div><div><h2 class="title"><a name="lopbFeatures"></a>Chapter&nbsp;4.&nbsp;Lopb Features</h2></div></div></div><p>The following few paragraphs describe the features provided by Lopb,
+			including the two Eclipse views, and the Eclipse workbench window trim
+			contribution (i.e. Lopb Status indicator).</p><div class="sect1" title="Lopb Report View"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="lopbReportView"></a>Lopb Report View</h2></div></div></div><p> The Lopb Report View is the main view provided by Lopb. In the right panel,
+				it shows a table of Jobs that have run since the beginning of the development
+				session, which is generally when Eclipse started. In the left panel, a set of
+				enabled or disabled Labels is shown. When a given label is enabled
+				(checked), the jobs associated with that label will appear in the
+				table.</p><p> <span class="inlinemediaobject"><img src="images/lopb-report-view.png"></span> </p></div><div class="sect2" title="Lopb Report View: Columns"><div class="titlepage"><div><div><h3 class="title"><a name="lopbReportViewColumns"></a>Lopb Report View: Columns</h3></div></div></div><p>
+				</p><div class="table"><a name="N1009A"></a><p class="title"><b>Table&nbsp;4.1.&nbsp;Lopb Report View: Columns</b></p><div class="table-contents"><table summary="Lopb Report View: Columns" border="1"><colgroup><col><col></colgroup><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody><tr><td>Job</td><td>Shows either the jobId (which is derived from the
+									class and name of the Job instance) or the jobAlias if
+									one exists. This cell is editable so that users may
+									modify the displayed text used to identify the job
+									(a.k.a. JobAlias). Also see "Enable job renaming"
+									in the Lopb Preferences page.</td></tr><tr><td>Labels</td><td>A comma separated list of labels assigned to a
+									Job. Similar to Gmail labels used for organizing
+									emails into one or many labels or
+									categories.</td></tr><tr><td>Runs</td><td>The number of times the job has run since the start
+									of the session.</td></tr><tr><td>Errors</td><td>The number of times that the job has returned an
+									error code when it completed.</td></tr><tr><td>Total time (sec)</td><td>The sum of all run times, where each run time is
+									equal to the end time minus the start time (in
+									seconds).</td></tr><tr><td>Average time (sec)</td><td>The total time divided by the number of runs (in
+									seconds).</td></tr><tr><td>System?</td><td>Job property indicating whether the job was
+									started by an internal Eclipse system routine, or
+									not (i.e. user-initiated).</td></tr><tr><td>Blocking?</td><td>Job property indicating whether this job is
+									blocking a higher priority non-system job from
+									starting due to a conflicting scheduling
+									rule.</td></tr></tbody></table></div></div><p><br class="table-break"> </p></div><div class="sect2" title="Lopb Report View: Drop-down Menu"><div class="titlepage"><div><div><h3 class="title"><a name="lopbReportViewDropDownMenu"></a>Lopb Report View: Drop-down Menu</h3></div></div></div><p>In the top right corner of the view, the user may click on a drop-down
+				command menu. The available commands are described below.</p><p>
+				</p><div class="table"><a name="N100D7"></a><p class="title"><b>Table&nbsp;4.2.&nbsp;Lopb Report View: Commands</b></p><div class="table-contents"><table summary="Lopb Report View: Commands" border="1"><colgroup><col><col></colgroup><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td>Export to CSV</td><td>Export the data from the Lopb Report View table to
+									a comma separated value (CSV) file. See the "Output
+									directory for exporting CSV files" preference in
+									the Lopb Preferences page.</td></tr><tr><td>Reset session</td><td>Reset the user's session by clearing all jobs
+									from the Lopb Report View table and setting all
+									timers to zero.</td></tr></tbody></table></div></div><p><br class="table-break"></p></div><div class="sect2" title="Lopb Report View: Right-click menu"><div class="titlepage"><div><div><h3 class="title"><a name="lopbReportViewRightClickMenu"></a>Lopb Report View: Right-click menu</h3></div></div></div><p> By selecting a row and then right-clicking, the user will be able to ignore
+				a job from futher processing. This means that Lopb will not collect data for
+				any future runs of the Job. </p></div><div class="sect2" title="Lopb Ignored Jobs View: Columns"><div class="titlepage"><div><div><h3 class="title"><a name="ignoredJobsViewColumns"></a>Lopb Ignored Jobs View: Columns</h3></div></div></div><p>
+				</p><div class="table"><a name="N10105"></a><p class="title"><b>Table&nbsp;4.3.&nbsp;Lopb Ignored Jobs View: Columns</b></p><div class="table-contents"><table summary="Lopb Ignored Jobs View: Columns" border="1"><colgroup><col><col></colgroup><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody><tr><td>Job</td><td>The JobId or JobAlias. Same as Lopb Report View,
+									Job column, except the cell is not
+									editable.</td></tr><tr><td>Class</td><td>The Job class.</td></tr><tr><td>Description</td><td>The name or description of the job.</td></tr></tbody></table></div></div><p><br class="table-break"></p></div><div class="sect2" title="Lopb Ignored Jobs View: Right-click Menu"><div class="titlepage"><div><div><h3 class="title"><a name="lopbIgnoredJobsViewRightClickMenu"></a>Lopb Ignored Jobs View: Right-click Menu</h3></div></div></div><p> By selecting an ignored job (i.e. row) in the table and then
+				right-clicking, the user may remove a job from the list of ignored
+				jobs.</p></div></div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="ch03s02.html">Prev</a>&nbsp;</td><td align="center" width="20%">&nbsp;</td><td align="right" width="40%">&nbsp;<a accesskey="n" href="ch04s02.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">Show Lopb Views&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;Ignored Jobs View</td></tr></table></div></body></html>

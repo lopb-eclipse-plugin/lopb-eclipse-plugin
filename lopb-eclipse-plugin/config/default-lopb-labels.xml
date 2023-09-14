@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lopb-labels>
+<labels>
+<label isIncluded="true" name="ANT"/>
+<label isIncluded="true" name="Build"/>
+<label isIncluded="true" name="Eclipse Console"/>
+<label isIncluded="false" name="Eclipse Internal"/>
+<label isIncluded="true" name="Eclipse Team"/>
+<label isIncluded="true" name="SVN"/>
+</labels>
+<labelJobs>
+<labelJob jobId="org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob(Initializing Java Tooling)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.core.internal.events.AutoBuildJob(Building workspace)" name="Build"/>
+<labelJob jobId="org.eclipse.ui.internal.ide.dialogs.CleanDialog$1(Cleaning selected projects)" name="Build"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.DebugUIPlugin$7(Launching telebanking build.xml)" name="Build"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.ProgressManager$2(Show In Dialog)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.jdt.internal.corext.util.OpenTypeHistory$UpdateJob(Checking consistency of type history...)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.core.internal.resources.ContentDescriptionManager$FlushJob(Flushing content description cache.)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.actions.DeleteResourceAction$4(Deleting resources)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog$3(Close dialog)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.editors.quickdiff.LastSaveReferenceProvider$ReadJob(Reading saved version of file for quick diff)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.actions.DeleteResourceAction$3(Checking resources)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.actions.DeleteResourceAction$5(Status checking)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog$14(Open user dialog)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.console.ConsolePatternMatcher$MatchJob(Match Job)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.core.DebugPlugin$EventDispatchJob(Debug Event Dispatch)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager$2(Compute launch button tooltip)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.team.svn.core.utility.ProgressMonitorUtility$1(Update SVN Cache)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.texteditor.quickdiff.DocumentLineDiffer$2(Initializing Quick Diff)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.internal.core.commands.DebugCommand$1(Execute Debug Command)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.decorators.DecorationScheduler$1(Decoration Calculation)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.ProgressViewUpdater$1(Update Progress)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.AnimationManager$1(Animation start)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.console.ConsoleManager$RepaintJob(schedule redraw() of viewers)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.decorators.DecorationScheduler$2(Clear Results)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.jdt.internal.debug.ui.JavaDebugOptionsManager$InitJob(Initialize Java Debug Options)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.console.ConsoleManager$ShowConsoleViewJob(Show Console View)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.jdt.internal.ui.javaeditor.ClassFileEditor$3(Override indicator installation job)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.core.internal.events.NotificationManager$NotifyJob(Updating workspace)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.console.IOConsolePartitioner$QueueProcessingJob(IOConsole Updater)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.ide.application.IDEIdleHelper$3(Collecting garbage)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.views.console.ProcessConsole$InputReadJob(Process Console Input Job)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.AnimationEngine(Animating rectangle)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Replace With Latest)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.elements.adapters.StackFrameSourceDisplayAdapter$2(clear source selection)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.decorators.DecorationScheduler$3(Update for Decoration Completion)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.dialogs.FilteredTree$2(Refresh Filter)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.DebugUIPlugin$7(Launching telebanking build.xml)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.ui.internal.progress.WorkbenchSiteProgressService$SiteUpdateJob(Change cursor)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$3(Requesting Java AST from selection)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.team.svn.core.utility.ProgressMonitorUtility$1(Resources Changed)" name="Eclipse Internal"/>
+<labelJob jobId="org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper(Get Repository Folder Children)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Show SVN Properties)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.core.BackgroundEventHandler$1(Updating Synchronize view for org.eclipse.team.svn.ui.synchronize.update.UpdateSubscriber.)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.ui.synchronize.RefreshParticipantJob$4()" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Synchronize)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.core.BackgroundEventHandler$1(Updating Change Sets for org.eclipse.team.svn.ui.synchronize.update.UpdateSubscriber)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.ui.synchronize.RefreshSubscriberParticipantJob(Synchronizing)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.internal.core.BackgroundEventHandler$1(Synchronize View: Processing label changes)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper(Pre-close/Pre-delete Clean)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.team.svn.core.utility.ProgressMonitorUtility$1(Refresh Resources)" name="Eclipse Team"/>
+<labelJob jobId="org.eclipse.ui.console.TextConsoleViewer$3(Reveal End of Document)" name="Eclipse Console"/>
+<labelJob jobId="org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper(Get Repository Folder Children)" name="SVN"/>
+<labelJob jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Show SVN Properties)" name="SVN"/>
+<labelJob jobId="org.eclipse.team.svn.core.SVNTeamPlugin$2()" name="SVN"/>
+<labelJob jobId="org.eclipse.debug.internal.ui.DebugUIPlugin$7(Launching telebanking build.xml)" name="ANT"/>
+</labelJobs>
+</lopb-labels>

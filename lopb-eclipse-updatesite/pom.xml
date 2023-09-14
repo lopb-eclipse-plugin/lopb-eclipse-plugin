@@ -1,0 +1,34 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.lopb.plugin</groupId>
+		<artifactId>lopb</artifactId>
+		<version>0.4.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>org.lopb.updatesite</artifactId>
+	<packaging>eclipse-repository</packaging>
+	
+	<build>
+   <plugins>
+            <plugin>
+         <groupId>org.eclipse.tycho</groupId>
+         <artifactId>tycho-p2-director-plugin</artifactId>
+         <executions>
+            <execution>
+               <id>create-product-distributions</id>
+               <goals>
+                  <goal>materialize-products</goal>
+                  <goal>archive-products</goal>
+               </goals>
+            </execution>
+         </executions>
+      </plugin>
+   </plugins>
+   
+   
+</build>
+
+
+</project>

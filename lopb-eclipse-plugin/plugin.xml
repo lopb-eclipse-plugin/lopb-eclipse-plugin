@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.eclipse.ui.startup">
+		<startup class="org.lopb.plugin.LopbStartup" />
+	</extension>
+	<extension point="org.eclipse.ui.views">
+		<category name="Lack of Progress Bar"
+			id="org.lopb.plugin.view">
+		</category>
+		<view name="Lopb Report" icon="icons/lopb16.gif"
+			allowMultiple="false" category="org.lopb.plugin.view"
+			id="org.lopb.plugin.ui.views.LopbView"
+			class="org.lopb.plugin.ui.views.LopbView">
+		</view>
+        <view name="Lopb Ignored Jobs" icon="icons/lopb16.gif"
+            allowMultiple="false" category="org.lopb.plugin.view"
+            id="org.lopb.plugin.ui.views.ignoredjobsview.LopbIgnoredJobsView"
+            class="org.lopb.plugin.ui.views.ignoredjobsview.LopbIgnoredJobsView">
+        </view>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page class="org.lopb.plugin.ui.preferences.LopbPreferencePage"
+			id="org.lopb.plugin.ui.preferences.LopbPreferencePage"
+			name="Lack of Progress Bar (Lopb)">
+		</page>
+	</extension>
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer
+			class="org.lopb.plugin.ui.preferences.LopbPreferenceInitializer">
+		</initializer>
+	</extension>
+<!--	
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          adaptable="true"
+          id="org.lopb.plugin.actions.JobStatsPopupMenu"
+          objectClass="org.eclipse.core.resources.IResource">
+       <action
+             class="org.lopb.plugin.actions.IgnoreJobActionDelegate"
+             enablesFor="+"
+             id="org.lopb.plugin.actions.ignoreJob"
+             label="Ignore job"
+             menubarPath="additions">
+       </action>
+    </objectContribution>
+ </extension>
+ -->
+ <extension
+       point="org.eclipse.ui.viewActions">
+    <viewContribution
+          id="org.lopb.plugin.actions.LopbView"
+          targetID="org.lopb.plugin.ui.views.LopbView">
+       <menu
+             id="org.lopb.plugin.actions.LopbViewMenu"
+             label="Lopb actions"
+             path="additions">
+          <groupMarker
+                name="content">
+          </groupMarker>
+          <separator
+                name="additions">
+          </separator>
+       </menu>
+         <action
+             class="org.lopb.plugin.actions.ShowIgnoredJobsViewActionDelegate"
+             id="org.lopb.plugin.actions.ShowIgnoredJobsAction"
+             label="Show Ignored Jobs"
+             menubarPath="org.lopb.plugin.actions.LopbViewMenu"
+             tooltip="Show Ignored Jobs view.">
+         </action>
+        <action
+             class="org.lopb.plugin.actions.ResetSessionViewActionDelegate"
+             id="org.lopb.plugin.actions.ResetSessionAction"
+             label="Reset session"
+             menubarPath="org.lopb.plugin.actions.LopbViewMenu"
+             tooltip="Reset session.">
+       </action>
+<!--
+        <action
+             class="org.lopb.plugin.actions.RefreshStatsViewActionDelegate"
+             id="org.lopb.plugin.actions.RefreshStatsAction"
+             label="Refresh stats"
+             menubarPath="org.lopb.plugin.actions.LopbViewMenu"
+             tooltip="Refresh the job stats.">
+       </action>
+-->       
+       <action
+             class="org.lopb.plugin.actions.ExportAsCsvViewActionDelegate"
+             id="org.lopb.plugin.actions.ExportToCsvAction"
+             label="Export to CSV"
+             menubarPath="org.lopb.plugin.actions.LopbViewMenu"
+             tooltip="Export the job stats to a CSV file.">
+       </action>
+    </viewContribution>
+ </extension>
+ <extension
+       point="org.eclipse.ui.menus">
+    <group id="org.lopb.plugin.trim.lopbStatus">    
+       <location>
+          <bar type="trim" />
+          <order
+                position="before"
+                relativeTo="status"/>
+       </location>
+    </group>
+    <widget
+          class="org.lopb.plugin.backport.LopbWorkbenchTrimWidget"
+          id="org.lopb.plugin.trim.LopbWorkbenchTrimWidget">
+       <location>
+          <bar path="org.lopb.plugin.trim.lopbStatus" type="trim" />
+       </location>
+    </widget>
+ </extension>
+</plugin>

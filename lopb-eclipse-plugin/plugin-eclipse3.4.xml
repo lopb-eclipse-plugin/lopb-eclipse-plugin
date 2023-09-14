@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.eclipse.ui.startup">
+		<startup class="org.lopb.plugin.LopbStartup" />
+	</extension>
+	<extension point="org.eclipse.ui.views">
+		<category name="Lack of Progress Bar"
+			id="org.lopb.plugin.view">
+		</category>
+		<view name="Lopb Report" icon="icons/lopb16.gif"
+			allowMultiple="false" category="org.lopb.plugin.view"
+			id="org.lopb.plugin.ui.views.LopbView"
+			class="org.lopb.plugin.ui.views.LopbView">
+		</view>
+	</extension>
+	<!-- toolbar:status -->
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="toolbar:org.eclipse.ui.trim.status?after=additions">
+			<toolbar id="org.lopb.plugin.ui.contributions.trim">
+				<control
+					class="org.lopb.plugin.ui.contributions.trim.LopbWorkbenchWindowControlContribution"
+					id="org.lopb.plugin.ui.contributions.trim.LopbWorkbenchWindowControlContribution" />
+			</toolbar>
+		</menuContribution>
+		<menuContribution
+			locationURI="menu:org.lopb.plugin.ui.views.LopbView?after=additions">
+			<command
+				commandId="org.lopb.plugin.commands.ExportAsCsvFileCommand" />
+			<command
+				commandId="org.lopb.plugin.commands.RefreshStatsCommand" />
+			<command
+				commandId="org.lopb.plugin.commands.WriteStatsToConsoleCommand" />
+			<command
+				commandId="org.lopb.plugin.commands.ResetSessionCommand" />
+            <!-- command
+                commandId="org.lopb.plugin.commands.RenameJobIdCommand" -->
+            <command
+                 commandId="org.lopb.plugin.commands.IgnoreJobCommand" />
+        </menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.lopb.plugin.handlers.ResetSessionHandler"
+			commandId="org.lopb.plugin.commands.ResetSessionCommand">
+		</handler>
+		<handler class="org.lopb.plugin.handlers.RefreshStatsHandler"
+			commandId="org.lopb.plugin.commands.RefreshStatsCommand">
+		</handler>
+		<handler
+			class="org.lopb.plugin.handlers.WriteStatsToConsoleHandler"
+			commandId="org.lopb.plugin.commands.WriteStatsToConsoleCommand">
+		</handler>
+		<handler class="org.lopb.plugin.handlers.ShowLopbViewHandler"
+			commandId="org.lopb.plugin.commands.ShowLopbViewCommand">
+		</handler>
+		<handler class="org.lopb.plugin.handlers.ExportAsCsvFileHandler"
+			commandId="org.lopb.plugin.commands.ExportAsCsvFileCommand">
+		</handler>
+        <handler class="org.lopb.plugin.handlers.RenameJobIdHandler"
+            commandId="org.lopb.plugin.commands.RenameJobIdCommand">
+            <enabledWhen>
+                <with variable="selection">
+                    <count value="+"/>
+                </with>
+            </enabledWhen>
+        </handler>
+        <handler class="org.lopb.plugin.handlers.IgnoreJobHandler"
+            commandId="org.lopb.plugin.commands.IgnoreJobCommand">
+            <enabledWhen>
+                <with variable="selection">
+                    <count value="+"/>
+                </with>
+            </enabledWhen>
+        </handler>
+	</extension>
+	<extension point="org.eclipse.ui.commands">
+		<category description="Lack of Progress Bar"
+			id="org.lopb.plugin.commands.category" name="Lopb">
+		</category>
+		<command categoryId="org.lopb.plugin.commands.category"
+			description="Reset the current session."
+			id="org.lopb.plugin.commands.ResetSessionCommand"
+			name="Reset session">
+		</command>
+		<command categoryId="org.lopb.plugin.commands.category"
+			description="Refresh stats in the Lopb Report view."
+			id="org.lopb.plugin.commands.RefreshStatsCommand"
+			name="Refresh stats">
+		</command>
+		<command categoryId="org.lopb.plugin.commands.category"
+			description="Write job stats to the console."
+			id="org.lopb.plugin.commands.WriteStatsToConsoleCommand"
+			name="Write stats to console">
+		</command>
+		<command categoryId="org.lopb.plugin.commands.category"
+			description="Show Lopb report."
+			id="org.lopb.plugin.commands.ShowLopbViewCommand"
+			name="Show Lopb Report">
+		</command>
+		<command categoryId="org.lopb.plugin.commands.category"
+			description="Export stats as CSV file."
+			id="org.lopb.plugin.commands.ExportAsCsvFileCommand"
+			name="Export to CSV">
+		</command>
+        <command categoryId="org.lopb.plugin.commands.category"
+            description="Rename this Job."
+            id="org.lopb.plugin.commands.RenameJobIdCommand"
+            name="Rename...">
+        </command>
+        <command categoryId="org.lopb.plugin.commands.category"
+            description="Ignore this job."
+            id="org.lopb.plugin.commands.IgnoreJobCommand"
+            name="Ignore">
+        </command>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page class="org.lopb.plugin.ui.preferences.LopbPreferencePage"
+			id="org.lopb.plugin.ui.preferences.LopbPreferencePage"
+			name="Lack of Progress Bar (Lopb)">
+		</page>
+	</extension>
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer
+			class="org.lopb.plugin.ui.preferences.LopbPreferenceInitializer">
+		</initializer>
+	</extension>
+</plugin>

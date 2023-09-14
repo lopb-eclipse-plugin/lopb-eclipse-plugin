@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lopbConfig>
+<ignoredJobs>
+<ignoredJob jobId="org.eclipse.core.internal.utils.StringPoolJob(Compacting memory)"/>
+<ignoredJob jobId="org.eclipse.ui.internal.activities.MutableActivityManager$2(Identifier Update Job)"/>
+<ignoredJob jobId="org.eclipse.jdt.internal.core.search.processing.JobManager$1$ProgressJob(Java indexing in progress)"/>
+<ignoredJob jobId="org.lopb.plugin.util.JobFactory$1(Lopb Periodic Task - Export CSV Snapshot)"/>
+</ignoredJobs>
+<jobIdAliases>
+<jobIdAlias alias="ProgressManager - Show In Dialog" jobId="org.eclipse.ui.internal.progress.ProgressManager$2(Show In Dialog)"/>
+<jobIdAlias alias="SVNTeamPlugin" jobId="org.eclipse.team.svn.core.SVNTeamPlugin$2()"/>
+<jobIdAlias alias="ProgressMonitorFocusJobDialog - Close dialog" jobId="org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog$3(Close dialog)"/>
+<jobIdAlias alias="TextConsoleViewer - Reveal End of Document" jobId="org.eclipse.ui.console.TextConsoleViewer$3(Reveal End of Document)"/>
+<jobIdAlias alias="org.eclipse.core.internal.utils.StringPoolJob(Compacting memory)" jobId="org.eclipse.core.internal.utils.StringPoolJob(Compacting memory)"/>
+<jobIdAlias alias="MatchJob - Match Job" jobId="org.eclipse.ui.internal.console.ConsolePatternMatcher$MatchJob(Match Job)"/>
+<jobIdAlias alias="ProgressMonitorFocusJobDialog - Open user dialog" jobId="org.eclipse.ui.internal.progress.ProgressMonitorFocusJobDialog$14(Open user dialog)"/>
+<jobIdAlias alias="EventDispatchJob - Debug Event Dispatch" jobId="org.eclipse.debug.core.DebugPlugin$EventDispatchJob(Debug Event Dispatch)"/>
+<jobIdAlias alias="LaunchingResourceManager - Compute launch button tooltip" jobId="org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager$2(Compute launch button tooltip)"/>
+<jobIdAlias alias="ProgressMonitorUtility - Update SVN Cache" jobId="org.eclipse.team.svn.core.utility.ProgressMonitorUtility$1(Update SVN Cache)"/>
+<jobIdAlias alias="AutoBuildJob - Building workspace" jobId="org.eclipse.core.internal.events.AutoBuildJob(Building workspace)"/>
+<jobIdAlias alias="BackgroundEventHandler - Updating Synchronize view" jobId="org.eclipse.team.internal.core.BackgroundEventHandler$1(Updating Synchronize view for org.eclipse.team.svn.ui.synchronize.update.UpdateSubscriber.)"/>
+<jobIdAlias alias="DebugCommand - Execute Debug Command" jobId="org.eclipse.debug.internal.core.commands.DebugCommand$1(Execute Debug Command)"/>
+<jobIdAlias alias="DecorationScheduler - Decoration Calculation" jobId="org.eclipse.ui.internal.decorators.DecorationScheduler$1(Decoration Calculation)"/>
+<jobIdAlias alias="RepaintJob - schedule redraw() of viewers" jobId="org.eclipse.ui.internal.console.ConsoleManager$RepaintJob(schedule redraw() of viewers)"/>
+<jobIdAlias alias="ProgressViewUpdater - Update Progress" jobId="org.eclipse.ui.internal.progress.ProgressViewUpdater$1(Update Progress)"/>
+<jobIdAlias alias="AnimationManager - Animation start" jobId="org.eclipse.ui.internal.progress.AnimationManager$1(Animation start)"/>
+<jobIdAlias alias="ResourceJob - Synchronize" jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Synchronize)"/>
+<jobIdAlias alias="ShowConsoleViewJob - Show Console View" jobId="org.eclipse.ui.internal.console.ConsoleManager$ShowConsoleViewJob(Show Console View)"/>
+<jobIdAlias alias="RefreshSubscriberParticipantJob - Synchronizing" jobId="org.eclipse.team.internal.ui.synchronize.RefreshSubscriberParticipantJob(Synchronizing)"/>
+<jobIdAlias alias="ClassFileEditor - Override indicator installation job" jobId="org.eclipse.jdt.internal.ui.javaeditor.ClassFileEditor$3(Override indicator installation job)"/>
+<jobIdAlias alias="CleanDialog - Cleaning selected projects" jobId="org.eclipse.ui.internal.ide.dialogs.CleanDialog$1(Cleaning selected projects)"/>
+<jobIdAlias alias="org.eclipse.ui.internal.activities.MutableActivityManager$2(Identifier Update Job)" jobId="org.eclipse.ui.internal.activities.MutableActivityManager$2(Identifier Update Job)"/>
+<jobIdAlias alias="NotifyJob - Updating workspace" jobId="org.eclipse.core.internal.events.NotificationManager$NotifyJob(Updating workspace)"/>
+<jobIdAlias alias="RefreshParticipantJob" jobId="org.eclipse.team.internal.ui.synchronize.RefreshParticipantJob$4()"/>
+<jobIdAlias alias="QueueProcessingJob - IOConsole Updater" jobId="org.eclipse.ui.internal.console.IOConsolePartitioner$QueueProcessingJob(IOConsole Updater)"/>
+<jobIdAlias alias="IDEIdleHelper Collecting garbage" jobId="org.eclipse.ui.internal.ide.application.IDEIdleHelper$3(Collecting garbage)"/>
+<jobIdAlias alias="AnimationEngine - Animating rectangle" jobId="org.eclipse.ui.internal.AnimationEngine(Animating rectangle)"/>
+<jobIdAlias alias="InputReadJob - Process Console Input Job" jobId="org.eclipse.debug.internal.ui.views.console.ProcessConsole$InputReadJob(Process Console Input Job)"/>
+<jobIdAlias alias="StackFrameSourceDisplayAdapter - clear source selection" jobId="org.eclipse.debug.internal.ui.elements.adapters.StackFrameSourceDisplayAdapter$2(clear source selection)"/>
+<jobIdAlias alias="ResourceJob - Update" jobId="org.eclipse.team.internal.ui.actions.JobRunnableContext$ResourceJob(Update)"/>
+<jobIdAlias alias="RealJob - Initializing Java Tooling" jobId="org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob(Initializing Java Tooling)"/>
+<jobIdAlias alias="DecorationScheduler - Update for Decoration Completion" jobId="org.eclipse.ui.internal.decorators.DecorationScheduler$3(Update for Decoration Completion)"/>
+<jobIdAlias alias="BackgroundEventHandler - Synchronize View: Processing label changes" jobId="org.eclipse.team.internal.core.BackgroundEventHandler$1(Synchronize View: Processing label changes)"/>
+<jobIdAlias alias="SiteUpdateJob -Change cursor" jobId="org.eclipse.ui.internal.progress.WorkbenchSiteProgressService$SiteUpdateJob(Change cursor)"/>
+<jobIdAlias alias="ProgressMonitorUtility - Resources Changed" jobId="org.eclipse.team.svn.core.utility.ProgressMonitorUtility$1(Resources Changed)"/>
+</jobIdAliases>
+</lopbConfig>

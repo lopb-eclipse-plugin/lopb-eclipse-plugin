@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.lopb.plugin</groupId>
+		<artifactId>lopb</artifactId>
+		<version>0.4.2-SNAPSHOT</version>
+	</parent>
+
+	<!--parent pom... -->
+	<artifactId>org.lopb.plugin.help</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+</project>

@@ -1,0 +1,79 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--parent pom... -->
+	<groupId>org.lopb.plugin</groupId>
+	<artifactId>lopb</artifactId>
+	<version>0.4.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho.version>3.0.4</tycho.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>lopb-eclipse-plugin</module>
+		<module>lopb-eclipse-plugin-help</module>
+		<module>lopb-eclipse-targetplatform</module>
+		<module>lopb-eclipse-feature</module>
+		<module>lopb-eclipse-updatesite</module>
+		<!-- 
+		<module>lopb-eclipse-feature</module>
+		
+
+		 -->
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<!-- Optional set the Java version you are using-->
+					<!--
+					<executionEnvironment>JavaSE-17</executionEnvironment>-->
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+					<target>
+						<file>../lopb-eclipse-targetplatform/lopb-eclipse-targetplatform.target</file>
+					</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

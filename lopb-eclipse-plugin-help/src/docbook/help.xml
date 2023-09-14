@@ -1,0 +1,512 @@
+<?xml version='1.0'?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+	"http://www.oasis-open.org/docbook/xml/4.3b2/docbookx.dtd">
+<book>
+	
+	<bookinfo>
+		
+		<title>Lack of Progress Bar (Lopb) - User Guide</title>
+		
+		<authorgroup> <author>
+			<firstname>Alex</firstname>
+			<surname>De Marco</surname>
+			<affiliation>
+				<address><email>alex@lopb.org</email></address>
+			</affiliation> </author> <author>
+			<firstname>Aaron</firstname>
+			<surname>Silinskas</surname>
+			<affiliation>
+				<address><email>aaron@lopb.org</email></address>
+			</affiliation> </author> <author>
+			<firstname>Abhishek</firstname>
+			<surname>Nath</surname>
+			<affiliation>
+				<address><email>abhishek@lopb.org</email></address>
+			</affiliation> </author>
+		</authorgroup>
+		
+		<date>2009-05-24</date>
+		<releaseinfo>@VERSION@</releaseinfo>
+		
+		<copyright>
+			<year>2009</year>
+			<holder>Alex De Marco, Aaron Silinskas, Abhishek Nath</holder>
+		</copyright>
+		<legalnotice>
+			
+			<para>Permission is granted to copy, distribute and/or modify this document
+				under the terms of the <ulink
+					url="http://www.eclipse.org/legal/epl-v10.html">Eclipse
+				Public License, Version 1.0</ulink>.</para>
+			
+		</legalnotice>
+		
+		<keywordset>
+			<keyword>Lack of Progress Bar</keyword>
+			<keyword>eclipse</keyword>
+			<keyword>documentation</keyword>
+		</keywordset>
+		
+	</bookinfo>
+	
+	<chapter id="gettingStarted">
+		
+		<title>Getting started</title>
+		
+		<para>Lack of Progress Bar (Lopb) is a performance benchmarking tool for your
+			software development environment. Lopb can be used to monitor and optimize the
+			performance of tools and infrastructure that developers access through their
+			Eclipse-based IDE.</para>
+		
+		<para>To install Lopb in your Eclipse environment, see Installation. To read about
+			how Lopb works, see the section on Concepts. For a description of Lopb Features,
+			see the Lopb Features section. For examples of the types of reports that can be
+			produced with the data provided by Lopb, see the Reporting Cookbook section.
+			Finally, for answers to frequently asked questions, please refer to the
+			FAQ.</para>
+		
+		<para>If you have any questions about Lopb or are interested in contributing to the
+			project, please send us an email at support@lopb.org.</para>
+		
+	</chapter>
+	
+	<chapter id="concepts">
+		
+		<title>Concepts</title>
+		
+		<para>The following paragraphs explain some of the Eclipse functionality that Lopb
+			relies on to gather benchmarking information.</para>
+		
+		<sect1 id="jobsJobManagerJobChangeListener">
+			
+			<title>Jobs, JobManager, JobChangeListener</title>
+			
+			<para>Since Eclipse version 3.0, plug-in developers are strongly encouraged
+				to implement long-running activities as an Eclipse background Jobs <ulink
+					url="http://www.eclipse.org/articles/Article-Concurrency/jobs-api.html">
+				[1]</ulink> . For example, checking a file out of a source code repository,
+				building from an ant script, and publishing an app to an application server
+				should be implemented as Eclipse background Jobs by plug-in
+				developers.</para>
+			
+			<para>Jobs get scheduled to run by the JobManager. The JobManager provides a
+				callback mechanism so that classes implementing IJobChangeListener will
+				be notified when jobs are scheduled, when they complete, or otherwise
+				change execution status. The events are instances of
+				IJobChangeEvent.</para>
+			
+			<para>By using this mechanism, Lopb listens for all job change events and when
+				they occur, it records the job identifier, a timestamp, and other job data
+				which is later used to compute various performance metrics. The overhead
+				introduced by Lopb is negligible.</para>
+			
+		</sect1>
+		
+		<sect1 id="jobIdsRuns">
+			
+			<title>JobIds and Runs</title>
+			
+			<para>When IJobChangeEvents are received by Lopb, a JobId is computed from the
+				Job's class and name. We have noticed that plug-in developers often provide
+				a short description of the job's behavior instead of a name, and this is
+				supported by Lopb. We assume that the class and name pair forms a unique
+				identifier for a job, and in practice so far, this assumption has held true.
+				Every time a job runs, Lopb keeps track of start and end time along with JobId.
+				When a job ends, Lopb determines average execution time for all runs of the
+				given JobId, in addition to some other metrics. This data is presented in the
+				Lopb Report View.</para>
+			
+		</sect1>
+		
+		<sect1 id="concurrectJobsRules">
+			
+			<title>Concurrent Jobs and Scheduling Rules</title>
+			
+			<para>Jobs can run concurrently, and may indeed contend for shared resources
+				(e.g. workspace files). In order to guard against resource corruption or
+				deadlock, scheduling rules are used. At this time, Lopb is not concerned
+				with concurrency or scheduling rules since only individual job runs are
+				monitored, and not dependencies between jobs or the locks or files that they
+				contend for. This may change in the future in order to produce aggregate or
+				&quot;roll-up&quot; metrics, see Lopb Status indicator
+				(experimental).</para>
+			
+		</sect1>
+		
+	</chapter>
+	
+	<chapter id="installation">
+		
+		<title>Installation</title>
+		
+		<sect1 id="updateManager">
+			
+			<title>Update Manager</title>
+			
+			<para>In order to install Lopb using the Eclipse update manager, follow the
+				instructions <ulink
+					url="http://help.eclipse.org/help33/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-34.htm">
+				here</ulink> and enter http://lopb.org/update as the Eclipse update site
+				URL.</para>
+			
+		</sect1>
+		
+		<sect1 id="showView">
+			
+			<title>Show Lopb Views</title>
+			
+			<para>Upon installation for the first time, the Lopb views will not be visible.
+				To enable them, click Window &gt; Show View &gt; Other… then select Lack of
+				Progress Bar (Lopb) and one of the two Lopb views. </para>
+			<para><inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/lopb-show-views.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject></para>
+			
+		</sect1>
+		
+	</chapter>
+	
+	<chapter id="lopbFeatures">
+		
+		<title>Lopb Features</title>
+		
+		<para>The following few paragraphs describe the features provided by Lopb,
+			including the two Eclipse views, and the Eclipse workbench window trim
+			contribution (i.e. Lopb Status indicator).</para>
+		
+		<sect1 id="lopbReportView">
+			
+			<title>Lopb Report View</title>
+			
+			<para> The Lopb Report View is the main view provided by Lopb. In the right panel,
+				it shows a table of Jobs that have run since the beginning of the development
+				session, which is generally when Eclipse started. In the left panel, a set of
+				enabled or disabled Labels is shown. When a given label is enabled
+				(checked), the jobs associated with that label will appear in the
+				table.</para>
+			
+			<para> <inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/lopb-report-view.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject> </para>
+		</sect1>
+		
+		<sect2 id="lopbReportViewColumns">
+			<title>Lopb Report View: Columns</title>
+			<para>
+				<table>
+					<title>Lopb Report View: Columns</title>
+					<tgroup cols="2">
+						<thead>
+							<row>
+								<entry>Column</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Job</entry>
+								<entry>Shows either the jobId (which is derived from the
+									class and name of the Job instance) or the jobAlias if
+									one exists. This cell is editable so that users may
+									modify the displayed text used to identify the job
+									(a.k.a. JobAlias). Also see "Enable job renaming"
+									in the Lopb Preferences page.</entry>
+							</row>
+							<row>
+								<entry>Labels</entry>
+								<entry>A comma separated list of labels assigned to a
+									Job. Similar to Gmail labels used for organizing
+									emails into one or many labels or
+									categories.</entry>
+							</row>
+							<row>
+								<entry>Runs</entry>
+								<entry>The number of times the job has run since the start
+									of the session.</entry>
+							</row>
+							<row>
+								<entry>Errors</entry>
+								<entry>The number of times that the job has returned an
+									error code when it completed.</entry>
+							</row>
+							<row>
+								<entry>Total time (sec)</entry>
+								<entry>The sum of all run times, where each run time is
+									equal to the end time minus the start time (in
+									seconds).</entry>
+							</row>
+							<row>
+								<entry>Average time (sec)</entry>
+								<entry>The total time divided by the number of runs (in
+									seconds).</entry>
+							</row>
+							<row>
+								<entry>System?</entry>
+								<entry>Job property indicating whether the job was
+									started by an internal Eclipse system routine, or
+									not (i.e. user-initiated).</entry>
+							</row>
+							<row>
+								<entry>Blocking?</entry>
+								<entry>Job property indicating whether this job is
+									blocking a higher priority non-system job from
+									starting due to a conflicting scheduling
+									rule.</entry>
+							</row>
+							
+						</tbody>
+					</tgroup>
+				</table> </para>
+		</sect2>
+		<sect2 id="lopbReportViewDropDownMenu">
+			<title>Lopb Report View: Drop-down Menu</title>
+			<para>In the top right corner of the view, the user may click on a drop-down
+				command menu. The available commands are described below.</para>
+			<para>
+				<table>
+					<title>Lopb Report View: Commands</title>
+					<tgroup cols="2">
+						<thead>
+							<row>
+								<entry>Command</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Export to CSV</entry>
+								<entry>Export the data from the Lopb Report View table to
+									a comma separated value (CSV) file. See the "Output
+									directory for exporting CSV files" preference in
+									the Lopb Preferences page.</entry>
+							</row>
+							<row>
+								<entry>Reset session</entry>
+								<entry>Reset the user's session by clearing all jobs
+									from the Lopb Report View table and setting all
+									timers to zero.</entry>
+							</row>
+							
+						</tbody>
+					</tgroup>
+				</table></para>
+		</sect2>
+		
+		<sect2 id="lopbReportViewRightClickMenu">
+			<title>Lopb Report View: Right-click menu</title>
+			<para> By selecting a row and then right-clicking, the user will be able to ignore
+				a job from futher processing. This means that Lopb will not collect data for
+				any future runs of the Job. </para>
+		</sect2>
+		
+		<sect1 id="lopbIgnoredJobsView">
+			
+			<title>Ignored Jobs View</title>
+			
+			<para> Users may indicate that they want Lopb to ignore certain jobs (see Lopb
+				Report View: Right-click Menu, command Ignore Job). The jobs that have been
+				ignored are displayed in the Ignored Jobs View shown below. </para>
+			<para><inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/lopb-ignoredjobs-view.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject></para>
+			
+		</sect1>
+		
+		<sect2 id="ignoredJobsViewColumns">
+			<title>Lopb Ignored Jobs View: Columns</title>
+			<para>
+				<table>
+					<title>Lopb Ignored Jobs View: Columns</title>
+					<tgroup cols="2">
+						<thead>
+							<row>
+								<entry>Column</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Job</entry>
+								<entry>The JobId or JobAlias. Same as Lopb Report View,
+									Job column, except the cell is not
+									editable.</entry>
+							</row>
+							<row>
+								<entry>Class</entry>
+								<entry>The Job class.</entry>
+							</row>
+							<row>
+								<entry>Description</entry>
+								<entry>The name or description of the job.</entry>
+							</row>
+							
+						</tbody>
+					</tgroup>
+				</table></para>
+		</sect2>
+		<sect2 id="lopbIgnoredJobsViewRightClickMenu">
+			<title>Lopb Ignored Jobs View: Right-click Menu</title>
+			<para> By selecting an ignored job (i.e. row) in the table and then
+				right-clicking, the user may remove a job from the list of ignored
+				jobs.</para>
+		</sect2>
+		
+		<sect1 id="lopbStatusIndicator">
+			
+			<title>Lopb Status Indicator (experimental)</title>
+			
+			<para>The Lopb Status Indicator is still an experimental feature. It shows an
+				aggregate metric of how much of a developer's session is consumed by
+				background jobs as a percentage. It is intended to be used as a benchmark
+				indicator for system deltas, or rather to compare system performance
+				before and after a change like a RAM upgrade or system
+				reconfiguration.</para>
+			<para> <inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/lopb-status-ind.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject></para>
+			
+			<para>The Lopb Status Indicator is eventually going to be the "lack of progress
+				bar", so the more time developers wait for jobs to complete (by staring at a
+				progress bar), the higher the "lack of progress" metric will rise, and vice
+				versa. </para>
+			<para>This indicator is disabled by default, but it may be enabled by clicking
+				the Lopb status checkbox on the Lopb Preference page.</para>
+		</sect1>
+		
+		<sect1 id="lopbPreferences">
+			
+			<title>Lopb Preferences</title>
+			
+			<para>The user may override certain default behavior for Lopb by changing
+				settings in the Lopb Preferences page. To access the page, click Window >
+				Preferences and then select Lack of Progress Bar (Lopb). </para>
+			<para><inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/lopb-preferences.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject></para>
+			
+			<para>The preferences that can be modified are described below.
+				<table>
+					<title>Lopb Preferences</title>
+					<tgroup cols="2">
+						<thead>
+							<row>
+								<entry>Preference</entry>
+								<entry>Description</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Include system jobs</entry>
+								<entry>When checked, system jobs will be monitored by
+									Lopb; otherwise they will be ignored.</entry>
+							</row>
+							<row>
+								<entry>Enable job renaming</entry>
+								<entry>When checked, Job alias will be editable (first
+									column) in the Lopb Report view.</entry>
+							</row>
+							<row>
+								<entry>Output directory for exporting CSV
+									files</entry>
+								<entry>When exporting CSV files, this is the base
+									directory for all output files.</entry>
+							</row>
+							<row>
+								<entry>Show Lopb status</entry>
+								<entry>When checked, the Lopb status indicator will be
+									shown in the Eclipse workbench window
+									trim.</entry>
+							</row>
+							
+						</tbody>
+					</tgroup>
+				</table> </para>
+		</sect1>
+		
+	</chapter>
+	
+	<chapter id="reportingCookbook">
+		
+		<title>Reporting Cookbook</title>
+		
+		<para>This section describes various reports that can be produced from the data
+			collected by Lopb. At this time, Lopb does not have any built-in reporting
+			functionality. The data is exported from Lopb as CSV files, and then processed
+			using a spreadsheet tool like MS-Excel in order to produce these
+			reports.</para>
+		
+		<sect1 id="reportExample1">
+			
+			<title>Report Example 1</title>
+			
+			<para> Let us assume that Lopb was used to collect data about how long it took to
+				check-in files on average for a given developer over the course of a week.
+				Then, after an upgrade to the source code repository server, data was
+				collected again over the course of a second week. Finally, by plotting the
+				average time it took to check in a file for each of the week, the following
+				report is produced. </para>
+			<para> <inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="@IMAGEDIR@/report-avg-min-cc-checkin.png"
+						format="PNG"/>
+				</imageobject></inlinemediaobject></para>
+			
+		</sect1>
+		
+	</chapter>
+	
+	<appendix id="faq">
+		
+		<title>Frequently Asked Questions (FAQ)</title>
+		
+		<qandaset>
+			<qandaentry>
+				<question>
+					<para>Does it slow down my IDE?</para>
+				</question>
+				<answer>
+					<para>The overhead introduced by Lopb is negligible. We were careful
+						to not do any time-consuming processing in the JobManager of
+						IJobChangeListener callback handlers. We don’t yet have a factor
+						for the overhead, but through a lot of experimentation, we have
+						seen that it is very small.</para>
+				</answer>
+			</qandaentry>
+			<qandaentry>
+				<question>
+					<para>Is it free?</para>
+				</question>
+				<answer>
+					<para>Yes. Lopb is released under the terms of the Eclipse Public
+						License, version 1.0 and your are free to download and use the
+						software. For further details on what you can or cannot do, please
+						read http://www.eclipse.org/legal/epl-v10.html. Note that
+						the EPL is a permissive, non-viral open-source license unlike the
+						GPL.</para>
+				</answer>
+			</qandaentry>
+		</qandaset>
+		
+	</appendix>
+	
+	<appendix id="furtherReading">
+		
+		<title>Further Reading</title>
+		
+		<para>We highly recommend Eclipse Plug-ins, 3rd Edition, by Clayberg and Rubel for
+			developers interested in building Eclispe plug-ins. We couldn’t have built
+			Lopb without it.</para>
+		
+	</appendix>
+	
+</book>
