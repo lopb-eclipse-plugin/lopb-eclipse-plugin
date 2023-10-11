@@ -22,7 +22,7 @@ git tag -a "$release_version" -a -m "$release_version release"
 
 mvn install -DskipTests -Prelease
 
-mvn org.eclipse.tycho:tycho-versions-plugin:set-version"-DnewVersion=$new_version"
+mvn org.eclipse.tycho:tycho-versions-plugin:set-version "-DnewVersion=$new_version"
 git commit -a -m "Preparing $new_version iteration"
 
 git push
