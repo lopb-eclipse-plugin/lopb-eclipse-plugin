@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Lopb Help
 Bundle-SymbolicName: org.lopb.plugin.help; singleton:=true
-Bundle-Version: 0.4.2
+Bundle-Version: 0.4.3.qualifier
 Bundle-Vendor: lopb.org
 Bundle-Localization: plugin
 Eclipse-LazyStart: true

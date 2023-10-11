@@ -2,7 +2,7 @@
 <feature
       id="org.lopb.feature"
       label="Lack of Progress Bar (Lopb)"
-      version="0.4.2"
+      version="0.4.3.qualifier"
       provider-name="Lopb.org"
       plugin="org.lopb.plugin">
 
@@ -123,14 +123,14 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="org.lopb.plugin"
          download-size="0"
          install-size="0"
-         version="0.4.2"
+         version="0.4.3.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.lopb.plugin.help"
          download-size="0"
          install-size="0"
-         version="0.4.2"
+         version="0.4.3.qualifier"
          unpack="false"/>
 
 </feature>

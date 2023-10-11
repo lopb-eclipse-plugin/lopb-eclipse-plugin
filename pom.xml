@@ -4,7 +4,7 @@
 	<!--parent pom... -->
 	<groupId>org.lopb.plugin</groupId>
 	<artifactId>lopb</artifactId>
-	<version>0.4.2</version>
+	<version>0.4.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
